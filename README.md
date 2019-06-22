@@ -8,9 +8,11 @@ Below you can find Training/Testing Code for our anomaly Detection project which
 
 The implementation is tested using:
 
-Keras version 1.1.0
+Keras version 1.1.0 or 1.0.7
 
-Theano 1.0.2
+Theano 1.0.2 or 1.0.3
+
+Numpy 1.15.4
 
 Python 3
 
