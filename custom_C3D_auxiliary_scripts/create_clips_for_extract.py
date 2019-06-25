@@ -9,7 +9,7 @@ prototxt_path = "/home/vivaainng/C3D/C3D-v1.0/examples/c3d_feature_extraction/pr
 input_vid_path = "input/Videos/"
 output_clip_path = "/home/vivaainng/Desktop/AnomalyDetectionCVPR2018/C3D_extracted_features/"
 
-_video_path_list = sys.argv[1] # <crimetype/video.mp4> ie: Abuse/Abuse001_x264.mp4, Explosion/Explosion...mp4
+_video_path_list = sys.argv[1] # <crimetype/video.mp4> ie: Abuse/Abuse001_x264.mp4, Explosion/Explosion025_x264.mp4, Training_Normal_Videos_Anomaly/Normal_Videos122_x264.mp4
 
 input_video_prefix = os.path.join(prototxt_path, "input_list_video.txt")
 
@@ -36,7 +36,6 @@ for i in range(final_clip):
 	    input_prefix_file.write('{} {} {}\n'.format(input_video_path, i, 0))
 
 	    # For output_prefix file
-	    #TODO: Update TESTING.sh with c3d_sport1m...extraction.sh scripts
 	    output_prefix_file.write('{}/{}\n'.format(os.path.splitext(output_path)[0], ("%06d" % i)))
 
 input_prefix_file.close()
