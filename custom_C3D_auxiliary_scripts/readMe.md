@@ -7,7 +7,7 @@ the ../c3d_feature_extraction/input/avi directory.
 (i)Run python create_clips_for_extract.py <crimetype/video.mp4> <num_frames_per_clip> to auto-generate 
 auxiliary file in c3d_feature_extraction/prototxt/ directory. (default num_frames_per_clip = 16)
 
-(ii)Next, in the sh c3d_sport1m_feature_extraction_video.sh, perform some following changes:
+(ii)Next, in c3d_sport1m_feature_extraction_video.sh, perform some following changes:
 -> comment the entire for loop 
 -> Uncomment the line mkdir -p <path/to/output>/crimetype/video , and change it corresponding to your <crimetype/video> that you've already select as input
 -> Run sh c3d_sport1m_feature_extraction_video.sh
