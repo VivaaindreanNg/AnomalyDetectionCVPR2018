@@ -6,7 +6,7 @@ import os.path
 
 prototxt_path = "/home/vivaainng/C3D/C3D-v1.0/examples/c3d_feature_extraction/prototxt/"
 
-input_vid_path = "input/avi/"
+input_vid_path = "input/"
 output_clip_path = "/home/vivaainng/Desktop/AnomalyDetectionCVPR2018/C3D_extracted_features/"
 
 _video_path_list = sys.argv[1] # <crimetype/video.mp4> ie: Abuse/Abuse001_x264.mp4, Explosion/Explosion...mp4
@@ -41,10 +41,3 @@ for i in range(final_clip):
 
 input_prefix_file.close()
 output_prefix_file.close()
-            
-
-    
-
-
-
-
