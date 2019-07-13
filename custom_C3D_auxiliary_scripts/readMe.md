@@ -5,7 +5,7 @@ the ../c3d_feature_extraction/input/Videos directory.
 
 3. To only extract features for a **single** video:
 (i)Run python create_clips_for_extract.py <crimetype/video.mp4> <num_frames_per_clip> to auto-generate 
-auxiliary files(for both input & output) in c3d_feature_extraction/prototxt/ directory. (default num_frames_per_clip = 16)
+auxiliary files(for both input & output) in c3d_feature_extraction/prototxt/ directory. (default num_frames_per_clip = 16, **mini-batch size has increased from 1 to 40**)
 
 (ii)Next, in c3d_sport1m_feature_extraction_video.sh, perform some following changes:
  - comment the entire for loop 
