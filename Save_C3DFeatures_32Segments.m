@@ -7,8 +7,11 @@ close all
 % default settings for computing C3D features, i.e., we compute C3D features for
 % every 16 frames and obtain the features from fc6.
 
-C3D_Path='D:/AnomalyDetectionCVPR2018/C3D_extracted_features';
-C3D_Path_Seg='D:/AnomalyDetectionCVPR2018/C3D_features_txt_Avg';
+
+
+C3D_Path='/home/vivaainng/Desktop/AnomalyDetectionCVPR2018/C3D_extracted_features';
+%First, create the C3D_features_txt_Avg dir 
+C3D_Path_Seg='/home/vivaainng/Desktop/AnomalyDetectionCVPR2018/C3D_features_txt_Avg';
 
 All_Folder=dir(C3D_Path);
 All_Folder=All_Folder(3:end); %All_Folder refers to type of videos
@@ -20,10 +23,10 @@ for ifolder=1:length(All_Folder) %Traverse through entire dir in C3D_extracted_f
     %Folder_Path is '../../Abuse', '../../Arrest', '../../Burglary'
     
     %Traverse through the entire C3D(per video) based on video-type (Abuse, Arson, Normal_Video ...)
-    xxx = dir(Folder_Path);
-    xxx = xxx(3:end);
-    for c3d_files=1:length(xxx) 
-        File_Path=[Folder_Path,'/',xxx(c3d_files).name]; %Individual dir containing c3d of a single video
+    crime_type_dir = dir(Folder_Path);
+    crime_type_dir = crime_type_dir(3:end);
+    for c3d_files=1:length(crime_type_dir) 
+        File_Path=[Folder_Path,'/',crime_type_dir(c3d_files).name]; %Individual dir containing c3d of a single video
     
         AllFiles=dir([File_Path,'/*.fc6-1']);
 
@@ -48,7 +51,7 @@ for ifolder=1:length(All_Folder) %Traverse through entire dir in C3D_extracted_f
                mkdir([C3D_Path_Seg,'/',All_Folder(ifolder).name])
           end
 
-           fid1=fopen([C3D_Path_Seg,'/',All_Folder(ifolder).name,'/',xxx(c3d_files).name,subcript],'w'); 
+           fid1=fopen([C3D_Path_Seg,'/',All_Folder(ifolder).name,'/',crime_type_dir(c3d_files).name,subcript],'w'); 
            if ~isempty(find(sum(Feature_vect,2)==0))
                  error('??')
            end
