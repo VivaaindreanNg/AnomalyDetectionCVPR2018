@@ -20,6 +20,9 @@ Ubuntu 16.04
 
 
 We used C3D-v1.0 (https://github.com/facebook/C3D) with default settings as a feature extractor.
+
+Directory custom_C3D_auxiliary_scripts contains scripts that automates the feature extraction into corresponding directories 
+based on the category of each video, along with the increased in number of mini-batches up to 40 (Recorded a small bump in AUC score from 75.41 to 76.42)
  
 Training_AnomalyDetecor_public.py is to Train Anomaly Detection Model
 
