@@ -17,7 +17,7 @@ dest_path_c3d = eval_workspace_path + "Testing_Videos_C3D/"
 path_containing_videos = "/home/vivaainng/C3D/C3D-v1.0/examples/c3d_feature_extraction/input/Videos"
 
 #Path containing temporal anomaly for each video (_C.mat file)
-temporal_ann_path = eval_workspace_path + 'Temporal_Annotations/Matlab_formate/'
+temporal_ann_path = eval_workspace_path + 'Temporal_Annotations/'
 
 def get_testing_video():
 

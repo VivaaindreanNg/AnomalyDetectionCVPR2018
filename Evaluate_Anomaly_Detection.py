@@ -14,7 +14,7 @@ C3D_CNN_Path = eval_workspace_path + 'Testing_Videos_C3D'
 # Path of mp4 videos
 Testing_VideoPath = eval_workspace_path + 'Testing_Videos'
 # Path of Temporal Annotations 
-AllAnn_Path = eval_workspace_path + 'Temporal_Annotations/Matlab_formate'
+AllAnn_Path = eval_workspace_path + 'Temporal_Annotations'
 # Path of Pretrained Model score on Testing videos (32 numbers for 32 temporal segments)
 Model_Score_Folder = eval_workspace_path + 'output_test_anomaly'
 # Path to save results. 
