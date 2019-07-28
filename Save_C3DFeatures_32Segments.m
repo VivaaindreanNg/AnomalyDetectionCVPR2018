@@ -48,7 +48,7 @@ for ifolder=1:length(All_Folder) %Traverse through entire dir in C3D_extracted_f
           
           %DEBUG
           if ~exist([C3D_Path_Seg,'/',All_Folder(ifolder).name],'dir')
-               mkdir([C3D_Path_Seg,'/',All_Folder(ifolder).name])
+               system(['mkdir -p ', C3D_Path_Seg,'/',All_Folder(ifolder).name]);
           end
 
            fid1=fopen([C3D_Path_Seg,'/',All_Folder(ifolder).name,'/',crime_type_dir(c3d_files).name,subcript],'w'); 
