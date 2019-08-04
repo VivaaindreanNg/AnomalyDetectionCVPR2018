@@ -1,5 +1,5 @@
 1. Simply place both of these files in repo: C3D/C3D-v1.0/examples/c3d_feature_extraction directory:
-![Tree structure](https://i.imgur.com/82AeTQm.png)
+![Tree structure](http://i.imgur.com/82AeTQm.png)
 
 
 
