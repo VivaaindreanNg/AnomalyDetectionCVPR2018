@@ -123,7 +123,7 @@ matDict['X'] = np.reshape(fpr, (fpr.size, 1))
 matDict['Y'] = np.reshape(tpr, (tpr.size, 1))
 matDict['AUC'] = auc
 
-savemat(Paper_Results + 'testing.mat', matDict)
+savemat(Paper_Results + 'evaluate_model_AUC.mat', matDict)
   
             
             

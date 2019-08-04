@@ -11,10 +11,10 @@ roc_files.sort()
 
 num_roc_files = len(roc_files)
 
-color_list = ['blue', 'cyan', 'black', 'red', 'green']
+color_list = ['blue', 'cyan', 'black', 'red']
 roc_category = ['Binary classifier', 'Lu et al.', 
-                'Hassan et al.', 'Proposed with constraint',
-                'Constraint & 40 minibatch']
+                'Hassan et al.', 'Proposed with constraint'
+                ]
 
 for i in range(num_roc_files):
     path_each_Roc = os.path.join(ROC_Paper_Results_path, roc_files[i])
