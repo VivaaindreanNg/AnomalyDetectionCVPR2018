@@ -27,6 +27,7 @@ Following contains step by step sequences on how to get this project up and runn
 Step 1: Perform C3D Feature extractions onto the entirety of the input videos.
 Head over to the custom_C3D_auxiliary_scripts for more info.
 * Output: C3D extracted features segregated accordingly based on category (Abuse, Arrest, Burglary, etc.) in blob (.fc6-1) format:
+
 ![Tree structure](http://i.imgur.com/02pBv2g.png)
 
 
@@ -36,6 +37,7 @@ Step 2: Perform the averaging of the extracted C3D features into 32 segments, ea
 Run the Save_C3DFeatures_32Segments.m file 
 ```
 * Output: Averaged C3D extracted features segregated accordingly based on category (Abuse, Arrest, Burglary, etc.) in txt format (per each video):
+
 ![Tree structure](http://i.imgur.com/u7Ts2I2.png)
 
 
@@ -72,6 +74,7 @@ Step 6: Prepare necessary folders & files for evaluation. Run command below for 
 python extract_files_for_eval.py
 ```
 * Output: Automatically create 2 directories & populate them:
+
 ![Tree structure](https://i.imgur.com/Uqjt4qL.png)
 
 
