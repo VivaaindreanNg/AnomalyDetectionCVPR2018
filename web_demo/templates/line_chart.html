@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <meta charset="utf-8" />
+    <title>FYP Demo</title>
+    <!-- import plugin script -->
+    <!--
+      <script src='static_Chart.min.js'></script>
+    -->
+    
+  </head>
+  <body>
+    <h1><center>Anomaly Detection Demo</center></h1>
+    <!-- line chart canvas element -->
+      <table border="1">
+        <tr>
+          <td>
+              <canvas id="myChart" width="1000" height="600"></canvas>
+          </td>
+          <td>
+              <center>
+                  <input type="button" onclick="show_video()" value="Load Video" />
+                  <p>
+                    <img src=""  id="vid">
+                  </p>
+                  <p id="pointSelected">Frame Number:</p>
+                  <p>
+                      Category: <strong>{{ legend[:-8] }}</strong>
+                  </p>
+              </center>
+          </td>
+        </tr>
+      </table>
+      
+    
+  
+
+    <script>
+      // Global parameters:
+      // do not resize the chart canvas when its container does (keep at 600x400px)
+      //Chart.defaults.global.responsive = false;
+
+      // define the chart data
+      var chartData = {
+        labels : [{% for item in labels %}
+                   "{{item}}",
+                  {% endfor %}
+                ],
+        datasets : [{
+            label: 'Probabilities of anomalies w.r.t frame numbers',
+            fill: true,
+            lineTension: 0.1,
+            backgroundColor: "transparent",
+            borderColor: "#E73921",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "#E73921",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "#E73921",
+            pointHoverBorderColor: "#E73921",
+            pointHoverBorderWidth: 2,
+            pointRadius: 0,
+            pointHitRadius: 10,
+            data : [{% for item in values %}
+                      "{{item}}",
+                    {% endfor %}],
+            spanGaps: false
+        }, {
+            label: 'Temporal Annotations',
+            fill: true,
+            lineTension: 0.1,
+            backgroundColor: "#FCD05B",
+            borderColor: "#FCD05B",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "#FCD05B",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 0,
+            pointHoverBackgroundColor: "#FCD05B",
+            pointHoverBorderColor: "#FCD05B",
+            pointHoverBorderWidth: 2,
+            pointRadius: 0,
+            pointHitRadius: 10,
+            data : [{% for ann in annotations %}
+                       "{{ ann }}",
+                    {% endfor %}],
+            spanGaps: false
+        }]
+      }
+
+      // get chart canvas
+      var holder = document.getElementById("myChart");
+      var ctx = document.getElementById("myChart").getContext("2d");
+
+      // create the chart using the chart canvas
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: {
+          scales: {
+            yAxes: [ {
+              display: true,
+              ticks: {
+                min: 0,
+                max: 1
+              }
+            }]
+          },
+          responsive: false,
+          width: 600,
+          height:400,
+          tooltips: {
+            enabled: true,
+            mode: 'single',
+            callbacks: {
+              label: function(tooltipItems, data) {
+                       return tooltipItems.yLabel + ' scores';
+                     }
+            }
+          },
+        }
+      });
+
+      // get the text element below the chart
+      var pointSelected = document.getElementById("pointSelected");
+
+      // create a callback function for updating the selected index on the chart
+      holder.onclick = function(evt){
+        var activePoint = myChart.getElementAtEvent(evt);
+        console.log(activePoint);
+        console.log('x:' + activePoint[0]._view.x);
+        console.log('maxWidth: ' + activePoint[0]._xScale.maxWidth);
+        console.log('y: ' + activePoint[0]._view.y);
+        console.log('index: ' + activePoint[0]._index);
+        pointSelected.innerHTML = 'Frame Number: ' + activePoint[0]._index;
+      };
+
+
+      function show_video() {
+        document.getElementById('vid').src = "{{ url_for('load_video') }}";
+      }
+    </script>
+
+    
+
+    <p>
+        <button type="button"
+          onclick="window.location.href='{{ url_for('index_page') }}';">BACK</button>
+     
+    </p>
+    
+  </body>
+</html>
