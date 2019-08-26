@@ -12,6 +12,7 @@ import numpy as np
 import numpy.matlib
 import scipy.signal
 
+os.system('python -m webbrowser -t "http://localhost:5000/index_page" ')
 
 UPLOAD_FOLDER = '/home/vivaainng/Desktop/AnomalyDetectionCVPR2018/Test_Folder'
 
@@ -173,7 +174,7 @@ def upload_data():
         annotations=annotation_list)
 
 
-# in web_demo dir: THEANO=FLAGS=device=cpu flask run 
+
 if __name__ == '__main__':
     app.run(debug=True)
 
@@ -181,7 +182,10 @@ if __name__ == '__main__':
 '''
 Input to the server:
 1)Averaged C3D files with 32 segments with 4096-dim (.txt) via: ~/Test_Folder dir
+
 2)Path to video files corresponding to extracted averaged C3D files, via: 
   ~/Eval_Res/Testing_Videos/ dir
 
+3)Path to temporal annotations (.mat files) for each test set, via:
+  ~/Eval_Res/Temporal_Annotations/ dir
 '''

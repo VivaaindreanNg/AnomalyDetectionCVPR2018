@@ -1,21 +1,115 @@
-<!DOCTYPE html>
-<head>
-    <title>FYP</title>
-</head>
-
-
-
+<!doctype html>
+<title>FYP</title>
+<style>
+  * {
+    box-sizing: border-box; 
+  }
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+    margin: 0;
+  }
+  .col-1 {
+    background: #D7E8D4;
+    flex: 1;
+  }
+  .col-2 {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+  }
+  .content > article {
+    flex: 4;
+    min-height: 50vh;
+  }
+  header {
+    background: yellowgreen;
+    height: 60vh;
+  }
+  footer {
+    background: yellowgreen;
+    height: 5vh;
+  }
+  header, footer, article, nav {
+    padding: 1em;
+  }
+  #hint {
+      width: 100%;
+      padding: 50px 0;
+      margin-top: 20px;
+  }
+  #choosefile {
+    display: none;
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(66, 184, 221);
+  }
+  #btn_submit {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(28, 184, 65);
+    font-size: 30px;
+  }
+</style>
 <body>
+    <script>
+        function showHint() {
+            var section = document.getElementById("hint");
+            if (section.style.display == "none")
+                section.style.display = "block";
+            else
+                section.style.display = "none";
+        }
+
+        function chooseFile() {
+            document.getElementById("btn_choosefile").click();
+        }
+    </script>
+
+  <div class="col-2">
+  	<header>
+      <center>
+        <strong>Structure of Anomaly Detection Demonstration</strong>
+        <p><img src="https://i.imgur.com/lr3LqKW.png" alt="Italian Trulli"></p>
+      </center>
+    </header>
+    
+    <main class="content">
+        <p><button onclick="showHint()">Hint</button></p>
         
-    <center>
+    <article>
+        <p>
+            <div id="hint">
+                Input/Paths to be specified:
+                <ul>
+                    <li>C3D features (averaged into 32 segments) of test set</li>
+                    <li>Video of corresponding test set</li>
+                    <li>Temporal annotations corresponding to each video</li>
+                </ul>
+            </div>
+        </p>
+
+      <center>
         <h2>Upload C3D feature</h2>
         <form action="upload_data" method="POST" enctype="multipart/form-data">
-            C3D feature path: <input type="file" name="c3d_file"><br>
-            <input type="submit" value="Submit">
+            C3D feature path: <input id="btn_choosefile" type="file" name="c3d_file">
+            <button id="choosefile" onclick="chooseFile();">Choose C3D features</button>
+            <br>
+            <p>
+                <input id="btn_submit" type="submit" value="Submit">
+            </p>
         </form>
-    </center>
-
-
+      </center>
+    </article>
+    
+    </main>
+    <footer>Source Code: <a href="https://github.com/VivaaindreanNg/AnomalyDetectionCVPR2018">Link to github</a></footer>
+  </div>
 </body>
-
-</html>
